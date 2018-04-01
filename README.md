@@ -1,7 +1,7 @@
 ember-cli-elasticlunr
 ==============================================================================
 
-[Short description of the addon.]
+A library for implementing full-text search in Ember.js applications using [elasticlunr](http://elasticlunr.com). Based on [ember-cli-lunr](https://github.com/Charizard/ember-cli-lunr).
 
 Installation
 ------------------------------------------------------------------------------
