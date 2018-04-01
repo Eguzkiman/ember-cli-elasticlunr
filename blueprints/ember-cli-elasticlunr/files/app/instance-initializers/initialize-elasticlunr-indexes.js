@@ -1,10 +1,7 @@
 /* global elasticlunr */
-
 	
-/*
-	Use this file to initialize elasticlunr indexes, it can be done like in the example below.
-	For more info on elastic lunr options, take a look at the docs here -> http://elasticlunr.com/docs/index.html
- */
+// Use this file to initialize elasticlunr indexes, it can be done like in the example below.
+// For more info on elasticlunr options, take a look at the docs here -> http://elasticlunr.com/docs/index.html
  
 // function itemIndexData () {
 // 	this.addField('name');
