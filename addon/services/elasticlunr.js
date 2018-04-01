@@ -1,4 +1,4 @@
-/* global lunr */
+/* global elasticlunr */
 import Service from '@ember/service';
 
 export default Service.extend({
@@ -12,9 +12,8 @@ export default Service.extend({
 		this.get('indexes')[type] = elasticlunr(structure);
 	},
 
-	add (type, dataHash) {
+	addDoc (type, dataHash) {
 		this._verifyIndexExists(type);
-		var x = this.get('indexes')[type];
 		this.get('indexes')[type].addDoc(dataHash);
 	},
 
@@ -23,7 +22,7 @@ export default Service.extend({
 		this.get('indexes')[type].update(dataHash);
 	},
 
-	remove (type, id) {
+	removeDoc (type, id) {
 		this._verifyIndexExists(type);
 		this.get('indexes')[type].removeDoc(id);
 	},

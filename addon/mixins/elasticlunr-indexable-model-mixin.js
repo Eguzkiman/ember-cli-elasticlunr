@@ -1,5 +1,7 @@
 import Mixin from '@ember/object/mixin';
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { isArray } from '@ember/array';
 
 export default Mixin.create({
 	elasticlunr: service(),
@@ -17,9 +19,16 @@ export default Mixin.create({
 		this.on('willDestroy', this._unindexRecord);
 	},
 
+	_parsedIndexableKeys: computed('indexableKeys', function () {
+		let indexableKeys = this.get('indexableKeys');
+		return isArray(indexableKeys)
+			? indexableKeys
+			: indexableKeys.split(',');
+	}),
+
 	_getIndexData () {
 		let modelName = this.constructor.modelName;
-		let indexableKeys = this.get('indexableKeys');
+		let indexableKeys = this.get('_parsedIndexableKeys');
 		let data = this.getProperties(indexableKeys);
 		let id = this.get('id');
 		data.id = id;
@@ -29,7 +38,7 @@ export default Mixin.create({
 
 	_indexRecord () {
 		let { modelName, data} = this._getIndexData();
-		this.get('elasticlunr').add(modelName, data);
+		this.get('elasticlunr').addDoc(modelName, data);
 	},
 
 	_reindexRecord () {
@@ -39,6 +48,6 @@ export default Mixin.create({
 
 	_unindexRecord () {
 		let { modelName, id} = this._getIndexData();
-		this.get('elasticlunr').remove(modelName, id);
+		this.get('elasticlunr').removeDoc(modelName, id);
 	}
 });

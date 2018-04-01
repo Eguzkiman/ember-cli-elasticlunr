@@ -1,3 +1,5 @@
+/* global elasticlunr */
+
 function itemIndexData () {
 	this.addField('name');
 	this.setRef('id');

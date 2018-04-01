@@ -3,5 +3,5 @@ import elasticlunrIndexbleModelMixin from 'ember-cli-elasticlunr/mixins/elasticl
 
 export default DS.Model.extend(elasticlunrIndexbleModelMixin, {
 	name: DS.attr('string'),
-	indexableKeys: ['name']
+	indexableKeys: 'name'
 });
