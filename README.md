@@ -19,9 +19,7 @@ Usage
 After install, open the `initialize-elastic-lunr.js` instance initializer (we generated it for you). Then, add indexes for every model you want be able to search locally. For an model named `item`, with fields `name` and `description`, your initializer would look like this:
 
 ```js
-
 // app/instance-initializers/initialize-elasticlunr-indexes.js
-  
 /* global elasticlunr */
   
 // Use this file to initialize elasticlunr indexes, it can be done like in the example below.
@@ -40,7 +38,6 @@ export function initialize( appInstance ) {
   elasticlunr.createIndex('item', itemIndexData);
 }
 
-
 export default {
   initialize
 };
@@ -54,11 +51,10 @@ For more info on elasticlunr indexing options, take a look at [this docs](http:/
 
 The `ElasticlunrIndexableModelMixin`  automatically indexes your models on elasticlunr. Add the mixin  and an `indexableKeys` property to the model. This key may be an array of fieldnames, or a string containing the fieldnames separated by comma.
 
-For our model `item`, it would look like this:
+For our model `item`, it would look like the following:
 
 ```js
 // app/models/item.js
-
 import DS from 'ember-data';
 import elasticlunrIndexbleModelMixin from 'ember-cli-elasticlunr/mixins/elasticlunr-indexable-model-mixin'
 
@@ -78,9 +74,7 @@ The mixin will also keep track of record creates, updates and deletes, and will 
 The `elasticlunr` service `search` method can be used to search indexed documents. A simple implementation may look like this:
 
 ```js
-
   // app/controllers/items.js
-
   import Controller from '@ember/controller';
   import { computed } from '@ember/object';
   import { inject as service } from '@ember/service';
