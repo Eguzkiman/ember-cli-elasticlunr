@@ -17,7 +17,7 @@ export default Service.extend({
 		this.get('indexes')[type].addDoc(dataHash);
 	},
 
-	update (type, dataHash) {
+	updateDoc (type, dataHash) {
 		this._verifyIndexExists(type);
 		this.get('indexes')[type].updateDoc(dataHash);
 	},
