@@ -16,7 +16,7 @@ Usage
 
 ### Initializing model indexes
 
-After install, open the `initialize-elastic-lunr.js` instance initializer (we generated it for you). Then, add indexes for every model you want be able to search locally. For an model named `item`, with fields `name` and `description`, your initializer would look like this:
+After install, open the `initialize-elastic-lunr.js` instance initializer (we generated it for you). Then, add indexes for every model you want be able to search locally. For a model named `item`, with fields `name` and `description`, your initializer would look like this:
 
 ```js
 // app/instance-initializers/initialize-elasticlunr-indexes.js
