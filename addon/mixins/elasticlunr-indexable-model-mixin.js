@@ -16,7 +16,7 @@ export default Mixin.create({
 		this.on('didReload', this._reindexRecord);
 		this.on('didUpdate', this._reindexRecord);
 		
-		this.on('willDestroy', this._unindexRecord);
+		this.on('didDelete', this._unindexRecord);
 	},
 
 	_parsedIndexableKeys: computed('indexableKeys', function () {
@@ -43,7 +43,7 @@ export default Mixin.create({
 
 	_reindexRecord () {
 		let { modelName, data} = this._getIndexData();
-		this.get('elasticlunr').update(modelName, data);
+		this.get('elasticlunr').updateDoc(modelName, data);
 	},
 
 	_unindexRecord () {
