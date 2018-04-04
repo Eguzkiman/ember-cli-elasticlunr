@@ -7,6 +7,9 @@
 
 <ul>
 	{{#each searchResults as |item|}}
-		<li>{{item.name}}</li>
+		<li>
+			<b>{{item.name}}</b> - 
+			{{item.description}}
+		</li>
 	{{/each}}
 </ul>

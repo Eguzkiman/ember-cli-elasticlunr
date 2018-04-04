@@ -23,7 +23,7 @@ export default Mixin.create({
 		let indexableKeys = this.get('indexableKeys');
 		return isArray(indexableKeys)
 			? indexableKeys
-			: indexableKeys.split(',');
+			: indexableKeys.split(',').map((keyname) => keyname.trim());
 	}),
 
 	_getIndexData () {

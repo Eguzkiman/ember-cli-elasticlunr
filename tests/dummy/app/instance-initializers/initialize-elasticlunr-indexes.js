@@ -2,6 +2,7 @@
 
 function itemIndexData () {
 	this.addField('name');
+	this.addField('description');
 	this.setRef('id');
 	this.pipeline.remove(elasticlunr.stopWordFilter);
 	this.pipeline.remove(elasticlunr.stemmer);
