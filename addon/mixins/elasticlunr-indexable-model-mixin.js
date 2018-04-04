@@ -48,6 +48,6 @@ export default Mixin.create({
 
 	_unindexRecord () {
 		let { modelName, id} = this._getIndexData();
-		this.get('elasticlunr').removeDoc(modelName, id);
+		this.get('elasticlunr').removeDocByRef(modelName, id);
 	}
 });

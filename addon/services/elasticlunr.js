@@ -22,9 +22,9 @@ export default Service.extend({
 		this.get('indexes')[type].updateDoc(dataHash);
 	},
 
-	removeDoc (type, id) {
+	removeDocByRef (type, id) {
 		this._verifyIndexExists(type);
-		this.get('indexes')[type].removeDoc(id);
+		this.get('indexes')[type].removeDocByRef(id);
 	},
 
 	search (type, string) {
